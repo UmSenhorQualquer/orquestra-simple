@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 class OrquestraConfig(AppConfig):
-	name = 'orquestra'
-	verbose_name = "Orquestra web app"
+	name = 'orquestra simple'
+	verbose_name = "Orquestra simple web app"

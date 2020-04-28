@@ -1,0 +1,50 @@
+{% load static %}
+<div class="ui top fixed menu grid" id='top-menu'>
+    <div class="ui center container">
+
+        {% if 'left' in active_menus or 'middle-left' in active_menus or 'bottom-left' in active_menus %}
+            <a class="ui item" id='sidebar-openerbtn'  data-transition="overlay" ><i class="sidebar icon large"></i></a>
+        {% endif %}
+
+
+        {% block top_bar_logo %}{% endblock %}
+
+        {% for menu in menu_plugins %}
+            {% ifequal menu.menu_place 'top' %}
+                {% if menu.submenus %}
+                    <div class="item ui simple dropdown">
+                        <i class="ui {{ menu.icon }} icon"></i> {{ menu.label|safe }} <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{ menu.url }}" {{ menu.target }} >
+                                <i class="ui {{ menu.icon }} icon"></i> {{ menu.label|safe }}
+                            </a>
+                            {% for submenu in menu.submenus %}
+                                <a class="item" href="{{ submenu.url }}" {{ submenu.target }} >
+                                    {% if submenu.icon %}<i class="{{submenu.icon}} icon"></i>{% endif %}
+                                    {{ submenu.label|safe }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="item" id="menu-{{ menu.anchor }}" href="{{ menu.url }}" {{ menu.target }} >
+                        {% if menu.icon %}<i class="{{menu.icon}} icon"></i>{% endif %}
+                        {{ menu.label|safe }}
+                    </a>
+                {% endif %}
+            {% endifequal %}
+        {% endfor %}
+
+        {% block top_bar_middle %}{% endblock %}
+
+        {% if user.is_authenticated %}
+            {% block top_bar_right_side %}
+                {% include "topbar_auth.html" %}
+            {% endblock %}
+        {% endif %}
+    </div>
+</div>
+
+
+<div style="padding-top: 54px;" ></div>
+

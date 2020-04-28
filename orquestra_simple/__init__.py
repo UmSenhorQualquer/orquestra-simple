@@ -1,2 +1,2 @@
 from confapp import conf
-conf += 'orquestra.settings'
+conf += 'orquestra_simple.settings'

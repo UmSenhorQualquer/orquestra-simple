@@ -1,5 +1,4 @@
-{% load jfutags %}{% load pyforms %}
-<!DOCTYPE html />
+{% load jfutags %}{% load pyforms %}<!DOCTYPE html />
 <html lang="en">
 <head>
         <meta charset="utf-8"/>
@@ -36,11 +35,10 @@
 <body >
 {% block fullcontent %}
 
-    {% block header %}{% include "header.html" %}{% endblock %}
-    {% block body %}{% endblock %}
-    {% block page_content %}{% endblock %}
+    {% block top_bar %}{% include "topbar.html" %}{% endblock %}
+    {% block header %}{% endblock %}
     {% block content %}{% endblock %}
-    {% block extra_body %}{% endblock %}
+    {% block footer %}{% endblock %}
     {% block extra_scripts %}{% endblock %}
 
 {% endblock %}

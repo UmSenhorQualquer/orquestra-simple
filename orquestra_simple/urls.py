@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.conf.urls  import url, include
 from django.conf       import settings
-from orquestra.views   import index
+from orquestra_simple.views   import index
 
 urlpatterns = [
     url(r'^app/(?P<app_uid>[-\w]+)/', index),

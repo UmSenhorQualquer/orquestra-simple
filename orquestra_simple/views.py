@@ -2,7 +2,7 @@ from confapp import conf
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from orquestra.apps_manager import AppsManager
+from orquestra_simple.apps_manager import AppsManager
 
 
 def template_data(request, app_uid=None):
@@ -13,7 +13,7 @@ def template_data(request, app_uid=None):
     # no plugins are available.
     # it will show the default application
     if len(plugins) == 0:
-        return render(request, 'default-app.html')
+        return render(request, 'base.html')
 
     if conf.ORQUESTRA_REQUIREAUTH and \
             not request.user.is_authenticated:
@@ -106,7 +106,7 @@ def template_data(request, app_uid=None):
 def index(request, app_uid=None):
     return render(
         request,
-        'base-authenticated.html',
+        conf.ORQUESTRA_DEFAULT_TEMPLATE,
         template_data(request, app_uid)
     )
 
