@@ -13,7 +13,7 @@ function home(name, label, url){
 				error_msg(res.msg);
 			else{
 				var html = '';
-				html += '<div class="ui center container" >'
+				html += '<div class="ui center container" ><br/><br/>'
 				html += "<form onsubmit='return false;' class='ui form "+res.css+"' id='app-"+res.app_id+"' >";
 				html += res.code;
 				html += '</form>';
@@ -40,7 +40,7 @@ function home_full(name, label, url){
 				error_msg(res.msg);
 			else{
 				var html = '';
-				html += '<div class="ui" style="padding-left: 30px; padding-right: 30px" >'
+				html += '<div class="ui" style="padding-left: 30px; padding-right: 30px" ><br/><br/>'
 				html += "<form onsubmit='return false;' class='ui form "+res.css+"' id='app-"+res.app_id+"' >";
 				html += res.code;
 				html += '</form>';
