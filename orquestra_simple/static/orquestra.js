@@ -131,7 +131,8 @@ function show_window(name, label, url, bigwindow) {
 				if( !window_exists )
 					$('body').append(`<div class='ui ${extra_css} modal' id='${dialog_id}' ></div>`);
 
-				var html = '<i class="close icon"></i><div class="header">'+label+'</div>';
+				var html = '';
+					if(label) html += '<i class="close icon"></i><div class="header">'+label+'</div>';
 					html += '<div class="content">';
 					html += "<form onsubmit='return false;' class='ui form"+res.css+"' id='app-"+res.app_id+"' >";
 					html += res.code;
@@ -181,9 +182,7 @@ $(document).ready(function() {
 	pyforms.register_layout_place(0, home);
 	pyforms.register_layout_place(2, show_window, activate_window, close_window);
 	pyforms.register_layout_place(3, append_home);
-
 	pyforms.register_layout_place(4, home_full);
-
 	pyforms.register_layout_place(6, show_bigwindow, activate_window, close_window);
 
 	pyforms_checkhash_wrapper();
