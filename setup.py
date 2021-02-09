@@ -29,7 +29,7 @@ setup(
 		'Topic :: Internet :: WWW/HTTP',
 		'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
 	],
-    install_requires=['django-allauth'],
+    install_requires=['django-allauth', 'sorl-thumbnail'],
 	package_data={'orquestra_simple': [
 		'static/*.*',
 		'static/jquery-ui/*.js',
