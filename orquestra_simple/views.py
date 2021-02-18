@@ -101,14 +101,13 @@ def template_data(request, app_uid=None):
         'GOOGLE_ANALYTICS': conf.ORQUESTRA_GOOGLE_ANALYTICS,
         'extra_css_file': conf.ORQUESTRA_EXTRA_CSS_FILE
     })
-    return context
-
-
-def index(request, app_uid=None):
     return render(
         request,
         conf.ORQUESTRA_DEFAULT_TEMPLATE,
-        template_data(request, app_uid)
+        context
     )
 
+
+def index(request, app_uid=None):
+    return template_data(request, app_uid)
 
