@@ -3,7 +3,34 @@
 {% user_display user as user_display %}
 <div class="right menu">
 
-    {% block top_bar_right_items %}{% endblock %}
+    {% block top_bar_right_items %}
+        {% for menu in menu_plugins %}
+            {% ifequal menu.menu_place 'top-right' %}
+                {% if menu.submenus %}
+                    <div class="item ui simple dropdown">
+                        <i class="ui {{ menu.icon }} icon"></i> {{ menu.label|safe }} <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{ menu.url }}" {{ menu.target }} >
+                                <i class="ui {{ menu.icon }} icon"></i> {{ menu.label|safe }}
+                            </a>
+                            {% for submenu in menu.submenus %}
+                                <a class="item" href="{{ submenu.url }}" {{ submenu.target }} >
+                                    {% if submenu.icon %}<i class="{{submenu.icon}} icon"></i>{% endif %}
+                                    {{ submenu.label|safe }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="item" id="menu-{{ menu.anchor }}" href="{{ menu.url }}" {{ menu.target }} >
+                        {% if menu.icon %}<i class="{{menu.icon}} icon"></i>{% endif %}
+                        {{ menu.label|safe }}
+                    </a>
+                {% endif %}
+            {% endifequal %}
+        {% endfor %}
+
+    {% endblock %}
 
     <div class="item ui simple dropdown" id='user-menu' >
         <i class="user icon label inverted circular yellow"></i>{{ user_display }}<i class="dropdown icon"></i>
