@@ -6,7 +6,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme: READ
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-	name='Orquestra Simple',
+	name='Orquestra simple',
 	version='1.4',
 	packages=find_packages(),
 	include_package_data=True,
