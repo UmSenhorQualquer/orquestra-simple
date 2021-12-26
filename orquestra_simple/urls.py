@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
-from django.conf.urls  import url, include
-from django.conf       import settings
+from django.urls import re_path
 from orquestra_simple.views   import index
 
 urlpatterns = [
-    url(r'^app/(?P<app_uid>[-\w]+)/', index),
-    url(r'^$', index),
+    re_path(r'^app/(?P<app_uid>[-\w]+)/', index),
+    re_path(r'^$', index),
 ]
