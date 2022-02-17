@@ -56,6 +56,7 @@ def template_data(request, app_uid=None):
         menu.icon = plugin_class.ORQUESTRA_MENU_ICON if hasattr(plugin_class, 'ORQUESTRA_MENU_ICON') else None
         menu.anchor = plugin_class.__name__.lower()
         menu.fullname = plugin_class.fullname  # full name of the class
+        menu.js_call = getattr(plugin_class, 'js_call', None)
         menu.parent_menu = None
         menu.active = False
         menu.submenu_active = False
