@@ -126,7 +126,7 @@ function show_window(name, label, url, bigwindow) {
 				var window_exists = $('#'+dialog_id).length>0;
 				var extra_css = '';
 				if(bigwindow)
-					extra_css = 'large';
+					extra_css = 'fullscreen';
 
 				if( !window_exists )
 					$('body').append(`<div class='ui ${extra_css} modal' id='${dialog_id}' ></div>`);
